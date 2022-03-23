@@ -9,11 +9,6 @@ export class AppComponent implements OnInit {
   title = 'clinic-manegment-system-angular';
   ELEMENT_DATA: {}[] = [];
 
-  links = [
-    { path: '/home', icon: 'home', title: 'Home' },
-    { path: '/courses', icon: 'view_list', title: 'Courses' },
-  ];
-
   constructor() {}
   ngOnInit(): void {
     this.ELEMENT_DATA = [

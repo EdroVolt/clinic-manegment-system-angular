@@ -17,19 +17,23 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./table-with-sorting.component.scss'],
 })
 export class TableWithSortingComponent implements OnInit, OnChanges {
-  @Input() ELEMENT_DATA = [{}];
+  @Input() ELEMENT_DATA: {}[] = [];
   displayedColumns: string[] = [];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
-  ngOnInit(): void {
-    this.displayedColumns = Object.keys(this.ELEMENT_DATA[0]);
-    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-  }
+  hiddenColumns = ['_id', 'password', '__v', 'paymentDetails']
+
+  ngOnInit(): void { }
 
   constructor(private _liveAnnouncer: LiveAnnouncer) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('table rerender');
+
+    this.displayedColumns = Object.keys(this.ELEMENT_DATA[0])
+      .filter(column => !this.hiddenColumns.includes(column));
+
+    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
   }
 
   @ViewChild(MatSort) sort: MatSort = new MatSort();
