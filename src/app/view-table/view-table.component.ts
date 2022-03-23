@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Clinic } from '../model/clinic';
 import { Doctor } from '../model/doctor';
+import { Patient } from '../model/patient';
 import { ClinicService } from '../service/clinic.service';
 import { DoctorService } from '../service/doctor.service';
+import { PatientService } from '../service/patient.service';
 
 @Component({
   selector: 'app-view-table',
@@ -13,8 +15,8 @@ import { DoctorService } from '../service/doctor.service';
 export class ViewTableComponent implements OnInit {
   ELEMENT_DATA: {}[] = [{}];
 
-  constructor(private doctorServ: DoctorService, private clincServ: ClinicService, private router: Router) {
-   
+  constructor(private doctorServ: DoctorService, private clincServ: ClinicService, private patientServ: PatientService, private router: Router) {
+
    }
 
   ngOnInit(): void {
@@ -38,7 +40,10 @@ export class ViewTableComponent implements OnInit {
         break;
 
       case '/patients':
-        // call service
+        this.patientServ.getAll().subscribe(((data: Patient[]) => {
+          console.log(data);
+          this.ELEMENT_DATA = data;
+        }));
         break;
 
       case '/medicines':
@@ -52,7 +57,7 @@ export class ViewTableComponent implements OnInit {
       case '/receptionists':
         // call service
         break;
-    
+
       default:
         break;
     }
