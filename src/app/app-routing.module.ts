@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'medicines', component: ViewTableComponent },
   // { path: 'mediciens' },
   { path: 'appointments', component: ViewTableComponent },
+  { path: 'prescriptions', component: ViewTableComponent },
+  { path: 'appointments', component: ViewTableComponent },
   { path: 'clinics', component: ViewTableComponent },
   // { path: '**' },
 ];
