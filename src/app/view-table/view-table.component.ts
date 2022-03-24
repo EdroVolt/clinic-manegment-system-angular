@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { Appointment } from '../model/appointment';
 import { Clinic } from '../model/clinic';
 import { Doctor } from '../model/doctor';
+import { Patient } from '../model/patient';
+import { ClinicService } from '../service/clinic.service';
+import { DoctorService } from '../service/doctor.service';
+import { PatientService } from '../service/patient.service';
 import { Medicine } from '../model/medicine';
 import { AppointmentService } from '../service/apponitment.service';
 import { ClinicService } from '../service/clinic.service';
@@ -19,7 +23,8 @@ export class ViewTableComponent implements OnInit {
 
   constructor( private doctorServ: DoctorService, private clincServ: ClinicService, 
               private medicineServ:MedicineService ,private router: Router, 
-              private appointmentServ:AppointmentService, private router: Router ) {}
+              private appointmentServ:AppointmentService, 
+              private patientServ: PatientService ) {}
 
   ngOnInit(): void {
     switch (this.router.url) {
@@ -46,7 +51,10 @@ export class ViewTableComponent implements OnInit {
         break;
 
       case '/patients':
-        // call service
+        this.patientServ.getAll().subscribe(((data: Patient[]) => {
+          console.log(data);
+          this.ELEMENT_DATA = data;
+        }));
         break;
 
       case '/medicines':
@@ -64,7 +72,7 @@ export class ViewTableComponent implements OnInit {
       case '/receptionists':
         // call service
         break;
-    
+
       default:
         break;
     }

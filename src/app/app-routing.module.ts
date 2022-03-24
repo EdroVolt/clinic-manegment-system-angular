@@ -8,7 +8,7 @@ const routes: Routes = [
   // { path: 'login' },
   // { path: 'about' },
   { path: 'doctors', component: ViewTableComponent },
-  // { path: 'patients' },
+  { path: 'patients', component: ViewTableComponent },
   // { path: 'reciptionists' },
   { path: 'medicines' , component: ViewTableComponent },
   // { path: 'mediciens' },
