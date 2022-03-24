@@ -11,23 +11,23 @@ export class PatientService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(){
+  getAll() {
     return this.http.get<Patient[]>(this.baseURL)
   }
 
-  getOne(_id: string){
+  getOne(_id: string) {
     return this.http.get<Patient>(this.baseURL + _id)
   }
 
-  add(newPatient: Patient){
-    return this.http.post<Patient>(this.baseURL, { patient: newPatient })
+  add(newPatient: Patient) {
+    return this.http.post<Patient>(this.baseURL, { newPatient })
   }
 
-  edit(updatedPatient: Patient){
-    return this.http.put<Patient>(this.baseURL + updatedPatient._id, { patient: updatedPatient })
+  edit(updatedPatient: Patient) {
+    return this.http.put<Patient>(this.baseURL + updatedPatient._id, { updatedPatient })
   }
 
-  delete(_id: string){
+  delete(_id: string) {
     return this.http.delete<Patient>(this.baseURL + _id)
   }
 }

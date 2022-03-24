@@ -11,23 +11,23 @@ export class ClinicService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(){
+  getAll() {
     return this.http.get<Clinic[]>(this.baseURL)
   }
 
-  getOne(_id: string){
+  getOne(_id: string) {
     return this.http.get<Clinic>(this.baseURL + _id)
   }
 
-  add(newClinic: Clinic){
-    return this.http.post<Clinic>(this.baseURL, { clinic: newClinic })
+  add(newClinic: Clinic) {
+    return this.http.post<Clinic>(this.baseURL, { newClinic })
   }
 
-  edit(updatedClinic: Clinic){
-    return this.http.put<Clinic>(this.baseURL + updatedClinic._id, { clinic: updatedClinic })
+  edit(updatedClinic: Clinic) {
+    return this.http.put<Clinic>(this.baseURL + updatedClinic._id, { updatedClinic })
   }
 
-  delete(_id: string){
+  delete(_id: string) {
     return this.http.delete<Clinic>(this.baseURL + _id)
   }
 }

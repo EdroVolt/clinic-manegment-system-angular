@@ -9,7 +9,7 @@ export class AppointmentService {
   appointment: Appointment[] = [];
   baseURL = 'http://localhost:8080/appointments/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll() {
     return this.http.get<Appointment[]>(this.baseURL);
@@ -21,13 +21,13 @@ export class AppointmentService {
 
   add(newAppointment: Appointment) {
     return this.http.post<Appointment>(this.baseURL, {
-      appointment: newAppointment,
+      ...newAppointment,
     });
   }
 
   edit(updatedAppointment: Appointment) {
     return this.http.put<Appointment>(this.baseURL + updatedAppointment._id, {
-      appointment: updatedAppointment,
+      ...updatedAppointment,
     });
   }
 

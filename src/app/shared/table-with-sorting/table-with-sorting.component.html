@@ -1,29 +1,53 @@
-<table
-  *ngIf="ELEMENT_DATA.length"
-  mat-table
-  [dataSource]="dataSource"
-  (matSortChange)="announceSortChange($event)"
-  matSort
-  class="mat-elevation-z8"
->
+<table *ngIf="ELEMENT_DATA.length" mat-table [dataSource]="dataSource" (matSortChange)="announceSortChange($event)"
+  matSort class="mat-elevation-z8">
   <!-- Position Column -->
-  <ng-container
-    *ngFor="let column of displayedColumns"
-    matColumnDef="{{ column }}"
-  >
-    <th
-      mat-header-cell
-      mat-sort-header
-      *matHeaderCellDef
-      sortActionDescription="Sort by number"
-    >
+  <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{ column }}">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef sortActionDescription="Sort by number">
       {{ column }}
     </th>
     <td mat-cell *matCellDef="let element">
-      {{ element.constructor.name === 'Object' ? (element?.[column] | json) : element?.[column] }}
-    </td>
+      <span *ngIf="!btnColumns.includes(column)">
+        <span *ngIf="element?.[column].constructor.name != 'Object'"> {{ element?.[column] }} </span>
+        <span *ngIf="element?.[column].constructor.name === 'Object'">
+          {{renderInnerTable(element?.[column] )}}
 
-    <!-- element.constructor.name === 'Object' ?  (element?.[column] | json) : element?.[column] -->
+          <!-- start: child table -->
+          <table mat-table [dataSource]="innerDataSource" class="mat-z8">
+            <!-- Position Column -->
+            <ng-container *ngFor="let innerColumn of innerColumns" matColumnDef="{{ innerColumn }}">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef sortActionDescription="Sort by number">
+                {{ innerColumn }}
+              </th>
+              <td mat-cell *matCellDef="let innerElement">
+                <span>
+                  <span> {{ innerElement?.[innerColumn] }} </span>
+                </span>
+
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef=" innerColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: innerColumns"></tr>
+          </table>
+          <!-- end: child table -->
+
+        </span>
+      </span>
+
+      <span *ngIf="column === 'delete'" data-test="hello">
+        <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon"
+          (click)="onDelete(element._id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </span>
+
+      <span *ngIf="column === 'edit'" data-test="hello">
+        <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon"
+          (click)="onEdit(element._id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </span>
+    </td>
 
   </ng-container>
 

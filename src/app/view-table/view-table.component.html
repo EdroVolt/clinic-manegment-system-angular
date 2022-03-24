@@ -1,1 +1,3 @@
-<app-table-with-sorting [ELEMENT_DATA]="ELEMENT_DATA" *ngIf="ELEMENT_DATA.length"></app-table-with-sorting>
+<app-table-with-sorting [ELEMENT_DATA]="ELEMENT_DATA" *ngIf="ELEMENT_DATA.length" (delete)="delete($event)"
+  (edit)="edit($event)">
+</app-table-with-sorting>

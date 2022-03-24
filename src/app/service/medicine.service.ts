@@ -12,23 +12,23 @@ export class MedicineService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(){
+  getAll() {
     return this.http.get<Medicine[]>(this.baseURL)
   }
 
-  getOne(_id: string){
+  getOne(_id: string) {
     return this.http.get<Medicine>(this.baseURL + _id)
   }
 
-  add(newMedicine: Medicine){
-    return this.http.post<Medicine>(this.baseURL, { medicine: newMedicine })
+  add(newMedicine: Medicine) {
+    return this.http.post<Medicine>(this.baseURL, { newMedicine })
   }
 
-  edit(updatedMedicine: Medicine){
-    return this.http.put<Medicine>(this.baseURL + updatedMedicine._id, { medicine: updatedMedicine })
+  edit(updatedMedicine: Medicine) {
+    return this.http.put<Medicine>(this.baseURL + updatedMedicine._id, { updatedMedicine })
   }
 
-  delete(_id: string){
+  delete(_id: string) {
     return this.http.delete<Medicine>(this.baseURL + _id)
   }
 }

@@ -18,9 +18,17 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormComponent } from './form/form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 @NgModule({
-  declarations: [TableWithSortingComponent],
+  declarations: [TableWithSortingComponent, FormComponent],
   imports: [
     CommonModule,
     MatTableModule,
@@ -41,6 +49,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTableModule,
     MatToolbarModule,
     MatButtonToggleModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatNativeDateModule
   ],
   exports: [
     TableWithSortingComponent,
@@ -59,7 +72,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSnackBarModule,
     MatTableModule,
     MatToolbarModule,
+    FormsModule,
     MatButtonToggleModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatNativeDateModule,
+    FormComponent
   ],
 })
 export class SharedModule {}
