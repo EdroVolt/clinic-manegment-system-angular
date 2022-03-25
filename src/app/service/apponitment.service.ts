@@ -20,8 +20,12 @@ export class AppointmentService {
   }
 
   add(newAppointment: Appointment) {
+    
     return this.http.post<Appointment>(this.baseURL, {
-      ...newAppointment,
+      patientId: newAppointment.patientId,
+      doctorId:newAppointment.doctorId,
+      time:newAppointment.time,
+      date:newAppointment.date
     });
   }
 
