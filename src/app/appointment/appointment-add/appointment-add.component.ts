@@ -33,8 +33,7 @@ export class AppointmentAddComponent implements OnInit {
 
   saveForm() {
     if (this.profileForm.valid) {
-      this.appointmentServe.add(this.appointment).subscribe(data => {console.log(data)})
-      this.router.navigate(['/appointments'])
+      this.appointmentServe.add(this.appointment).subscribe(data => { this.router.navigate(['/appointments']) })
     }
   }
 
