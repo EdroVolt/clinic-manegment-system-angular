@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddDoctorComponent } from './doctor/add-doctor/add-doctor.component';
 import { ViewTableComponent } from './view-table/view-table.component';
 
 const routes: Routes = [
@@ -7,7 +8,11 @@ const routes: Routes = [
   // { path: 'register' },
   // { path: 'login' },
   // { path: 'about' },
-  { path: 'doctors', component: ViewTableComponent },
+  {
+    path: 'doctors', component: ViewTableComponent
+  },
+  { path: 'doctors/add', component: AddDoctorComponent },
+  { path: 'edit', component: AddDoctorComponent },
   { path: 'patients', component: ViewTableComponent },
   // { path: 'reciptionists' },
   { path: 'medicines', component: ViewTableComponent },

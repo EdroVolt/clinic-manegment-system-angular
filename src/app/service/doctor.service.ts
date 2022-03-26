@@ -20,7 +20,21 @@ export class DoctorService {
   }
 
   add(newDoctor: Doctor) {
-    return this.http.post<Doctor>(this.baseURL, { ...newDoctor })
+    console.log("newDoctor: ", newDoctor);
+
+    return this.http.post<Doctor>(this.baseURL, {
+      name: newDoctor.name,
+      email: newDoctor.email,
+      password: newDoctor.password,
+      clincId: newDoctor.clincId,
+      image: newDoctor.image,
+      address: newDoctor.address,
+      appoinmentIds: newDoctor.appoinmentIds,
+      avaliableAppointments: newDoctor.avaliableAppointments,
+      paymentDetails: newDoctor.paymentDetails,
+      specialization: newDoctor.specialization,
+      veseeta: newDoctor.veseeta,
+    })
   }
 
   edit(updatedDoctor: Doctor) {
