@@ -35,8 +35,7 @@ export class AppointmentEditComponent implements OnInit {
 
   saveForm() {
     if (this.profileForm.valid) {
-      this.appointmentServe.edit(this.appointment).subscribe(data => {console.log(data)})
-      this.router.navigate(['/appointments'])
+      this.appointmentServe.edit(this.appointment).subscribe(data => { this.router.navigate(['/appointments']) })
     }
   }
 }
