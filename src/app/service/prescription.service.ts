@@ -28,7 +28,7 @@ export class PrescriptionService {
   }
   edit(updatedPrescription: Prescription) {
     return this.http.put<Prescription>(this.baseURL + updatedPrescription._id, {
-      prescription: updatedPrescription,
+      ...updatedPrescription,
     });
   }
   delete(_id: string) {
