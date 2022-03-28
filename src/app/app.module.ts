@@ -9,6 +9,8 @@ import { CoreModule } from './core/core.module';
 import { ViewTableComponent } from './view-table/view-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MedicineModule } from './medicine/medicine.module';
+import { DoctorModule } from './doctor/doctor.module';
+import { AppointmentModule} from './appointment/appointment.module';
 
 @NgModule({
   declarations: [AppComponent, ViewTableComponent],
@@ -19,9 +21,11 @@ import { MedicineModule } from './medicine/medicine.module';
     SharedModule,
     CoreModule, 
     HttpClientModule,
-    MedicineModule
+    MedicineModule,
+    AppointmentModule,
+    DoctorModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
