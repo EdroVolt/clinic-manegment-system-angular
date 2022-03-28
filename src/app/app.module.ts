@@ -12,7 +12,7 @@ import { PrescriptionEditComponent } from './prescription/prescription-edit/pres
 import { PrescriptionAddComponent } from './prescription/prescription-add/prescription-add.component';
 
 @NgModule({
-  declarations: [AppComponent, ViewTableComponent, PrescriptionEditComponent, PrescriptionAddComponent],
+  declarations: [AppComponent, ViewTableComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
