@@ -7,7 +7,7 @@ import { PrescriptionService } from '../service/prescription.service';
 import { PatientService } from '../service/patient.service';
 import { AppointmentService } from '../service/apponitment.service';
 import { MedicineService } from '../service/medicine.service';
-
+import { ReceptionistService } from '../service/receptionist.service';
 @Component({
   selector: 'app-view-table',
   templateUrl: './view-table.component.html',
@@ -17,11 +17,16 @@ export class ViewTableComponent implements OnInit {
   ELEMENT_DATA: {}[] = [{}];
   _service: any;
 
-  constructor(private doctorServ: DoctorService, private clincServ: ClinicService,
-    private medicineServ: MedicineService, private router: Router,
+  constructor(
+    private doctorServ: DoctorService,
+    private clincServ: ClinicService,
+    private medicineServ: MedicineService,
+    private router: Router,
     private appointmentServ: AppointmentService,
     private patientServ: PatientService,
-    private prescriptionServ: PrescriptionService) { }
+    private receptionistServ: ReceptionistService,
+    private prescriptionServ: PrescriptionService
+  ) {}
 
   ngOnInit(): void {
     switch (this.router.url) {
@@ -44,30 +49,30 @@ export class ViewTableComponent implements OnInit {
         this._service = this.prescriptionServ;
         break;
       case '/receptionists':
-        // call service
+        this._service = this.receptionistServ;
         break;
       default:
         break;
     }
 
-    this._service.getAll().subscribe(((data: {}[]) => {
+    this._service.getAll().subscribe((data: {}[]) => {
       console.log(data);
       this.ELEMENT_DATA = data;
-    }));
+    });
   }
 
   delete(_id: string) {
     if (confirm('are you sure'))
       this._service.delete(_id).subscribe(() => {
-        this._service.getAll().subscribe(((data: {}[]) => {
+        this._service.getAll().subscribe((data: {}[]) => {
           // console.log(data);
           this.ELEMENT_DATA = data;
-        }));
-      })
+        });
+      });
   }
 
   edit(_id: string) {
     // TODO: send id to the edit component
-    this.router.navigateByUrl(this.router.url + `/edit/${_id}`)
+    this.router.navigateByUrl(this.router.url + `/edit/${_id}`);
   }
 }
