@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddDoctorComponent } from './doctor/add-doctor/add-doctor.component';
 import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component';
 import { ViewTableComponent } from './view-table/view-table.component';
+import { AppointmentEditComponent} from './appointment/appointment-edit/appointment-edit.component'
+import { AppointmentAddComponent } from './appointment/appointment-add/appointment-add.component';
 
 const routes: Routes = [
   // { path: 'home' },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'medicines', component: ViewTableComponent },
   // { path: 'mediciens' },
   { path: 'appointments', component: ViewTableComponent },
+  {path: 'appointments/edit/:id' ,component:AppointmentEditComponent},
+  {path: 'appointments/add' ,component:AppointmentAddComponent},
   { path: 'prescriptions', component: ViewTableComponent },
   { path: 'appointments', component: ViewTableComponent },
   { path: 'clinics', component: ViewTableComponent },
