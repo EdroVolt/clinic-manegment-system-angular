@@ -41,10 +41,10 @@ export class PrescriptionEditComponent implements OnInit {
 
   saveForm() {
     if (this.profileForm.valid) {
-      this.prescriptionServe.add(this.prescription).subscribe((data) => {
+      this.prescriptionServe.edit(this.prescription).subscribe((data) => {
         console.log(data);
-      });
-      this.router.navigate(['/prescriptions']);
+        this.router.navigate(['/prescriptions']);
+      }); 
     }
   }
 }
