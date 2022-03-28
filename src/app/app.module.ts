@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { ViewTableComponent } from './view-table/view-table.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ClinicModule } from './clinic/clinic.module';
 
 @NgModule({
   declarations: [AppComponent, ViewTableComponent],
@@ -16,10 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    CoreModule, 
-    HttpClientModule
+    CoreModule,
+    HttpClientModule,
+    ClinicModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

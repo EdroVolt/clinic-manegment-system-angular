@@ -20,11 +20,17 @@ export class ClinicService {
   }
 
   add(newClinic: Clinic) {
-    return this.http.post<Clinic>(this.baseURL, { newClinic })
+    return this.http.post<Clinic>(this.baseURL, {
+      name: newClinic.name,
+      description: newClinic.description,
+      address: newClinic.address,
+      doctorsId: newClinic.doctorsId,
+      receptionistIds: newClinic.receptionistIds
+    })
   }
 
   edit(updatedClinic: Clinic) {
-    return this.http.put<Clinic>(this.baseURL + updatedClinic._id, { updatedClinic })
+    return this.http.put<Clinic>(this.baseURL + updatedClinic._id, { ...updatedClinic })
   }
 
   delete(_id: string) {

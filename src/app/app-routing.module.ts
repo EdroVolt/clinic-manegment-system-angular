@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddClinicComponent } from './clinic/add-clinic/add-clinic.component';
+import { EditClinicComponent } from './clinic/edit-clinic/edit-clinic.component';
 import { ViewTableComponent } from './view-table/view-table.component';
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'prescriptions', component: ViewTableComponent },
   { path: 'appointments', component: ViewTableComponent },
   { path: 'clinics', component: ViewTableComponent },
+  { path: 'clinics/add', component: AddClinicComponent },
+  { path: 'clinics/edit/:id', component: EditClinicComponent },
   // { path: '**' },
 ];
 
