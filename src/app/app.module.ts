@@ -9,6 +9,9 @@ import { CoreModule } from './core/core.module';
 import { ViewTableComponent } from './view-table/view-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClinicModule } from './clinic/clinic.module';
+import { MedicineModule } from './medicine/medicine.module';
+import { DoctorModule } from './doctor/doctor.module';
+import { AppointmentModule} from './appointment/appointment.module';
 
 @NgModule({
   declarations: [AppComponent, ViewTableComponent],
@@ -19,7 +22,11 @@ import { ClinicModule } from './clinic/clinic.module';
     SharedModule,
     CoreModule,
     HttpClientModule,
-    ClinicModule
+    ClinicModule,
+    HttpClientModule,
+    MedicineModule,
+    AppointmentModule,
+    DoctorModule
   ],
   providers: [],
   bootstrap: [AppComponent],
