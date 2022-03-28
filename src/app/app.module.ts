@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { ViewTableComponent } from './view-table/view-table.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MedicineModule } from './medicine/medicine.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { AppointmentModule} from './appointment/appointment.module';
 
@@ -20,6 +21,7 @@ import { AppointmentModule} from './appointment/appointment.module';
     SharedModule,
     CoreModule, 
     HttpClientModule,
+    MedicineModule,
     AppointmentModule,
     DoctorModule
   ],

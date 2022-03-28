@@ -21,11 +21,16 @@ export class MedicineService {
   }
 
   add(newMedicine: Medicine) {
-    return this.http.post<Medicine>(this.baseURL, { newMedicine })
+    return this.http.post<Medicine>(this.baseURL, { 
+      name:newMedicine.name,
+      ingredients:newMedicine.ingredients,
+      image:newMedicine.image,
+      price:newMedicine.price
+     })
   }
 
   edit(updatedMedicine: Medicine) {
-    return this.http.put<Medicine>(this.baseURL + updatedMedicine._id, { updatedMedicine })
+    return this.http.put<Medicine>(this.baseURL + updatedMedicine._id, { ...updatedMedicine })
   }
 
   delete(_id: string) {
