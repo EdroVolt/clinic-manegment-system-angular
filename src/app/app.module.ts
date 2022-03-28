@@ -10,8 +10,8 @@ import { ViewTableComponent } from './view-table/view-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MedicineModule } from './medicine/medicine.module';
 import { DoctorModule } from './doctor/doctor.module';
-import { AppointmentModule} from './appointment/appointment.module';
-
+import { AppointmentModule } from './appointment/appointment.module';
+import { ReceptionistModule } from './receptionist/receptionist.module';
 @NgModule({
   declarations: [AppComponent, ViewTableComponent],
   imports: [
@@ -19,13 +19,14 @@ import { AppointmentModule} from './appointment/appointment.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    CoreModule, 
+    CoreModule,
     HttpClientModule,
     MedicineModule,
     AppointmentModule,
-    DoctorModule
+    ReceptionistModule,
+    DoctorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

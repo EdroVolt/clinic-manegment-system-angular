@@ -6,7 +6,7 @@ import { Receptionist } from './../model/receptionist';
 })
 export class ReceptionistService {
   receptionist: Receptionist[] = [];
-  baseURL = 'http://localhost:8080/receptionist/';
+  baseURL = 'http://localhost:8080/receptionists/';
 
   constructor(private http: HttpClient) {}
   getAll() {
@@ -16,10 +16,12 @@ export class ReceptionistService {
     return this.http.get<Receptionist>(this.baseURL + _id);
   }
   add(newReceptionist: Receptionist) {
-    return this.http.post<Receptionist>(this.baseURL, { ...newReceptionist});
+    return this.http.post<Receptionist>(this.baseURL, { ...newReceptionist });
   }
   edit(updatedReceptionist: Receptionist) {
-    return this.http.put<Receptionist>(this.baseURL + updatedReceptionist._id, { ...updatedReceptionist });
+    return this.http.put<Receptionist>(this.baseURL + updatedReceptionist._id, {
+      ...updatedReceptionist,
+    });
   }
   delete(_id: string) {
     return this.http.delete<Receptionist>(this.baseURL + _id);
