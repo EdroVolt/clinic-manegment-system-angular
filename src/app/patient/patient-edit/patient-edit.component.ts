@@ -38,23 +38,23 @@ export class PatientEditComponent implements OnInit {
   }
 
   profileForm = this.formBuilder.group({
-    name:['',[Validators.required]],
-    email:['',[Validators.required]],
-    password:['',[Validators.required]],
-    medicalHistory:['',[Validators.required]],
-    image:['',[Validators.required]],
-    prescriptions:['',[Validators.required]],
-    appointmentIds:['',[Validators.required]],
-    address: {
-      city: "",
-      street: "",
-      government: ""
-    },
-    paymentDetails:['',[Validators.required]],
+    name: ['', [Validators.required]],
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+    medicalHistory: ['', [Validators.required]],
+    image: ['', [Validators.required]],
+    // prescriptions:['',[Validators.required]],
+    // appointmentIds:['',[Validators.required]],
+    // address: {
+    //   city: "",
+    //   street: "",
+    //   government: ""
+    // },
+    // paymentDetails:['',[Validators.required]],
   });
 
-  saveForm(){
-    if(this.profileForm.valid){
+  saveForm() {
+    if (this.profileForm.valid) {
       this.patientServe.edit(this.patient).subscribe(data => {
         this.router.navigate(['/patients'])
       });

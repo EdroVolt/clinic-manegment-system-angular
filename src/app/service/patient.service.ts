@@ -20,11 +20,21 @@ export class PatientService {
   }
 
   add(newPatient: Patient) {
-    return this.http.post<Patient>(this.baseURL, { newPatient })
+    return this.http.post<Patient>(this.baseURL, {
+      name: newPatient.name,
+      email: newPatient.email,
+      password: newPatient.password,
+      image: newPatient.image,
+      address: newPatient.address,
+      appointmentIds: newPatient.appointmentIds,
+      paymentDetails: newPatient.paymentDetails,
+      medicalHistory: newPatient.medicalHistory,
+      prescriptions: newPatient.prescriptions,
+    })
   }
 
   edit(updatedPatient: Patient) {
-    return this.http.put<Patient>(this.baseURL + updatedPatient._id, { updatedPatient })
+    return this.http.put<Patient>(this.baseURL + updatedPatient._id, { ...updatedPatient })
   }
 
   delete(_id: string) {

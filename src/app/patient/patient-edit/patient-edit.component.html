@@ -2,7 +2,7 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>
-        Add Doctor <span *ngIf="ngForm.submitted && !profileForm.valid" class="small-font"
+        Add Patient <span *ngIf="ngForm.submitted && !profileForm.valid" class="small-font"
           [ngClass]="{'invalid': ngForm.submitted }">* required</span>
       </mat-card-title>
     </mat-card-header>
@@ -26,7 +26,8 @@
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field class="full-width">
-            <input formControlName="medicalHistory" [(ngModel)]="patient.medicalHistory" matInput placeholder="medicalHistory">
+            <input formControlName="medicalHistory" [(ngModel)]="patient.medicalHistory" matInput
+              placeholder="medicalHistory">
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -35,25 +36,25 @@
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
-          <mat-form-field class="full-width">
+          <!-- <mat-form-field class="full-width">
             <input formControlName="prescriptions" [(ngModel)]="patient.prescriptions" matInput
               placeholder="prescriptions">
-          </mat-form-field>
+          </mat-form-field> -->
         </mat-grid-tile>
         <mat-grid-tile>
-          <mat-form-field class="full-width">
+          <!-- <mat-form-field class="full-width">
             <input formControlName="appointmentIds" [(ngModel)]="patient.appointmentIds" matInput placeholder="appointmentIds">
-          </mat-form-field>
+          </mat-form-field> -->
         </mat-grid-tile>
         <mat-grid-tile>
-          <mat-form-field class="full-width">
+          <!-- <mat-form-field class="full-width">
             <input formControlName="address" [(ngModel)]="patient.address" matInput placeholder="address">
-          </mat-form-field>
+          </mat-form-field> -->
         </mat-grid-tile>
         <mat-grid-tile>
-          <mat-form-field class="full-width">
+          <!-- <mat-form-field class="full-width">
             <input formControlName="paymentDetails" [(ngModel)]="patient.paymentDetails" matInput placeholder="paymentDetails">
-          </mat-form-field>
+          </mat-form-field> -->
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>
