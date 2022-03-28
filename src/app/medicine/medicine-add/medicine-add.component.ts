@@ -33,8 +33,7 @@ export class MedicineAddComponent implements OnInit {
 
   saveForm() {
     if (this.profileForm.valid) {
-      this.medicineServ.add(this.medicine).subscribe(data => {console.log(data)})
-      this.router.navigate(['/medicines'])
+      this.medicineServ.add(this.medicine).subscribe(data => this.router.navigate(['/medicines']))
     }
   }
 
