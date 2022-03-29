@@ -7,6 +7,8 @@ import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component'
 import { ViewTableComponent } from './view-table/view-table.component';
 import { AppointmentEditComponent} from './appointment/appointment-edit/appointment-edit.component'
 import { AppointmentAddComponent } from './appointment/appointment-add/appointment-add.component';
+import { PrescriptionAddComponent } from './prescription/prescription-add/prescription-add.component';
+import { PrescriptionEditComponent } from './prescription/prescription-edit/prescription-edit.component';
 
 const routes: Routes = [
   // { path: 'home' },
@@ -27,6 +29,8 @@ const routes: Routes = [
   {path: 'appointments/edit/:id' ,component:AppointmentEditComponent},
   {path: 'appointments/add' ,component:AppointmentAddComponent},
   { path: 'prescriptions', component: ViewTableComponent },
+  {path:'prescriptions/add', component: PrescriptionAddComponent},
+  {path:'prescriptions/edit/:id', component: PrescriptionEditComponent},
   { path: 'appointments', component: ViewTableComponent },
   { path: 'clinics', component: ViewTableComponent },
   // { path: '**' },
