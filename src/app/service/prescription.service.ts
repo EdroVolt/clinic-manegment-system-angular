@@ -18,15 +18,20 @@ export class PrescriptionService {
   }
   add(newPrescription: Prescription) {
     return this.http.post<Prescription>(this.baseURL, {
-      prescription: newPrescription,
+      title: newPrescription.title,
+      // doctorId: newPrescription.doctorId,
+      // clinciId: newPrescription.clinciId,
+      patiantId: newPrescription.patiantId,
+      medicines: newPrescription.medicines,
+      description: newPrescription.description,
     });
   }
   edit(updatedPrescription: Prescription) {
     return this.http.put<Prescription>(this.baseURL + updatedPrescription._id, {
-      prescription: updatedPrescription,
+      ...updatedPrescription,
     });
   }
-  delete(_id:string){
-    return this.http.delete<Prescription>(this.baseURL+ _id)
+  delete(_id: string) {
+    return this.http.delete<Prescription>(this.baseURL + _id);
   }
 }
